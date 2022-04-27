@@ -286,8 +286,8 @@ def main():
     solver = SGD(net,loss,LR=0.1)
 
     #compile training graph using input shape 32x1x28x28
-    solver.compile((32,1,28,28),"llvm -opt-level=0")   #for debug - builds very fast
-    #solver.compile((batchSize,1,28,28),"llvm -mcpu=core-avx2")  
+    #solver.compile((32,1,28,28),"llvm -opt-level=0")   #for debug - builds very fast
+    solver.compile((batchSize,1,28,28),"llvm -mcpu=core-avx2")  
 
     import time
     curT = time.time()
